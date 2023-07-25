@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: terminal-font;
+    src: url(assets/fonts/RobotoMono-VariableFont_wght.ttf) format('opentype');
+}
+
+* {
+    font-family: terminal-font;
+}
+
+body {
+    height: 100dvh;
+    width: 100dvw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    overflow: hidden;
+    position: fixed;
+    background-color: #333333;
+    margin: 0;
+}
+
