@@ -1,4 +1,13 @@
-h2{
+.current-weather{
     text-align: center;
     color: lightgrey;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p{
+        font-style: italic;
+    }
+
 }

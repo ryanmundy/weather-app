@@ -11,6 +11,6 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   public getCurrentWeather(lng: string, lat: string): Observable<any> {
-    return this.http.get(this.BASE_URL + `forecast?latitude=${lat}&longitude=${lng}&current_weather=true&temperature_unit=fahrenheit`);
+    return this.http.get(this.BASE_URL + `forecast?latitude=${lat}&longitude=${lng}&current_weather=true&temperature_unit=fahrenheit&hourly=temperature_2m,apparent_temperature`);
   }
 }

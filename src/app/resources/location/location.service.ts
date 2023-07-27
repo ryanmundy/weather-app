@@ -11,12 +11,13 @@ export class LocationService {
 
   public async getCurrentLocation(): Promise<any> {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(position => {
-        resolve({ lng: position.coords.longitude, lat: position.coords.latitude });
-      },
-        err => {
-          reject(err);
-        });
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          resolve({ lng: position.coords.longitude, lat: position.coords.latitude });
+        })
+      } else {
+        reject(new Error('browser does not support geolocation api'));
+      }
     });
   }
 }

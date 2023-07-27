@@ -8,12 +8,16 @@ import { WeatherService } from '../resources/weather/weather.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public currentTemperature!: string;
+  public currentWeather!: any;
 
-  constructor(private locationService: LocationService, private weatherService: WeatherService){}
+  constructor(private locationService: LocationService, private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.requestWeather();
+  }
+
+  public roundTemperature(temp: number): number {
+    return Math.floor(temp);
   }
 
   private requestWeather(): void {
@@ -21,8 +25,8 @@ export class HomeComponent implements OnInit {
       if (location) {
         console.log(location);
         this.weatherService.getCurrentWeather(location.lng, location.lat).subscribe(weather => {
-          this.currentTemperature = `${Math.floor(weather.current_weather.temperature)}°`;
           console.log(weather);
+          this.currentWeather = weather;
         })
       }
     })

@@ -1,1 +1,4 @@
-<h2>{{currentTemperature}}</h2>
+<div class="current-weather" *ngIf="currentWeather">
+    <h2>{{roundTemperature(currentWeather.current_weather.temperature)}}°</h2>
+    <p>Feels Like {{roundTemperature(currentWeather.hourly.apparent_temperature[0]) }}°</p>
+</div>
